@@ -15,11 +15,13 @@ import com.alberto.habits.authentication.presentation.SignupScreen
 import com.alberto.habits.home.presentation.detail.DetailScreen
 import com.alberto.habits.home.presentation.home.HomeScreen
 import com.alberto.habits.onboarding.presentation.OnboardingScreen
+import com.alberto.habits.sttings.presentation.SettingsScreen
 
 @Composable
 fun NavigationHost (
     navHostController: NavHostController,
-    startDestination: NavigationRoute
+    startDestination: NavigationRoute,
+    logout: () -> Unit
 ) {
     NavHost(navController = navHostController, startDestination = startDestination.route) {
         composable(NavigationRoute.Onboarding.route) {
@@ -77,5 +79,22 @@ fun NavigationHost (
                 navHostController.popBackStack()
             })
         }
+
+        composable(NavigationRoute.Settings.route) {
+            SettingsScreen(
+                onBack = {
+                    navHostController.popBackStack()
+                },
+                onLogout = {
+                    logout()
+                    navHostController.navigate(NavigationRoute.Login.route) {
+                        popUpTo(navHostController.graph.id) {
+                            inclusive = true
+                        }
+                    }
+                }
+            )
+        }
+
     }
 }

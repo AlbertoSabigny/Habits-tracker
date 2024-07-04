@@ -35,7 +35,12 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     NavigationHost(
                         navHostController = navController,
-                        startDestination = getStartDestination())
+                        startDestination = getStartDestination(),
+                        logout = {
+                            viewModel.logout()
+                        }
+
+                    )
                 }
 
             }

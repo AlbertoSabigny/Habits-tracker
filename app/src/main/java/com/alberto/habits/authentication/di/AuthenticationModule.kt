@@ -7,6 +7,7 @@ import com.alberto.habits.authentication.domain.repository.AuthenticationReposit
 import com.alberto.habits.authentication.domain.usecase.GetUserIdUseCase
 import com.alberto.habits.authentication.domain.usecase.LoginUseCases
 import com.alberto.habits.authentication.domain.usecase.LoginWithEmailUseCase
+import com.alberto.habits.authentication.domain.usecase.LogoutUseCase
 import com.alberto.habits.authentication.domain.usecase.SignupUseCases
 import com.alberto.habits.authentication.domain.usecase.SignupWithEmailUseCase
 import com.alberto.habits.authentication.domain.usecase.ValidateEmailUseCase
@@ -61,6 +62,12 @@ object AuthenticationModule {
     @Singleton
     fun provideGetUserIdUseCase(repository: AuthenticationRepository): GetUserIdUseCase {
         return GetUserIdUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideLogoutUseCase(repository: AuthenticationRepository): LogoutUseCase {
+        return LogoutUseCase(repository)
     }
 
 }
