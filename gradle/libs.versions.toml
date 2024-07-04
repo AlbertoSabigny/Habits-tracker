@@ -24,7 +24,7 @@ timePicker = "1.1.0"
 turbineVersion = "0.7.0"
 workmanagerVersion = "2.8.0"
 firebaseBom = "31.2.2"
-minSdk = "24"
+minSdk = "26"
 compileSdk = "34"
 targetSdk = "34"
 

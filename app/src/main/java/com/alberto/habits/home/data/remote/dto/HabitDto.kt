@@ -1,4 +1,9 @@
 package com.alberto.habits.home.data.remote.dto
 
-class HabitDto {
-}
+data class HabitDto(
+    val name: String,
+    val reminder: Long,
+    val startDate: Long,
+    val frequency: List<Int>,
+    val completedDates: List<Long>?
+)

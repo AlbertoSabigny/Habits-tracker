@@ -19,6 +19,7 @@ class HomeViewModel @Inject constructor(
         private set
     init {
         getHabits()
+
     }
 
     fun onEvent(event: HomeEvent) {

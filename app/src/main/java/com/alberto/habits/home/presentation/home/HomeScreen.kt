@@ -1,5 +1,6 @@
 package com.alberto.habits.home.presentation.home
 
+import android.Manifest
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.*
@@ -18,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.alberto.habits.R
+import com.alberto.habits.home.presentation.home.components.HomeAskPermission
 import com.alberto.habits.home.presentation.home.components.HomeDateSelector
 import com.alberto.habits.home.presentation.home.components.HomeHabit
 import com.alberto.habits.home.presentation.home.components.HomeQuote
@@ -59,8 +61,14 @@ fun HomeScreen(
             }
         }
     ) {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            HomeAskPermission(permission = Manifest.permission.POST_NOTIFICATIONS)
+        }
         LazyColumn(
-            modifier = Modifier.padding(it).padding(start = 20.dp),
+            modifier = Modifier
+                .padding(it)
+                .padding(start = 20.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp),
             contentPadding = PaddingValues(bottom = 20.dp)
         ) {
@@ -76,7 +84,9 @@ fun HomeScreen(
 
             item {
                 Row(
-                    modifier = Modifier.fillMaxWidth().padding(end = 20.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(end = 20.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(

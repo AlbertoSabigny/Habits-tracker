@@ -1,4 +1,8 @@
 package com.alberto.habits.home.domain.alarm
 
-class AlarmHandler {
+import com.alberto.habits.home.domain.Habit
+
+interface AlarmHandler {
+    fun setRecurringAlarm(habit: Habit)
+    fun cancel(habit: Habit)
 }

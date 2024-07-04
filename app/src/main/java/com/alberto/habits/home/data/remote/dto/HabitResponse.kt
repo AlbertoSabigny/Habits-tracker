@@ -1,4 +1,4 @@
 package com.alberto.habits.home.data.remote.dto
 
-class HabitResponse {
-}
+
+typealias HabitResponse = Map<String, HabitDto>

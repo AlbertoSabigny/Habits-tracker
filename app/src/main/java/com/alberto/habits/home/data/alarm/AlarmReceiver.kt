@@ -8,6 +8,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import com.alberto.habits.R
+import com.alberto.habits.home.data.extension.goAsync
 import com.alberto.habits.home.domain.Habit
 import com.alberto.habits.home.domain.alarm.AlarmHandler
 import com.alberto.habits.home.domain.repository.HomeRepository

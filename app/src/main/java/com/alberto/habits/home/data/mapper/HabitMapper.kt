@@ -1,10 +1,9 @@
-package com.alberto.habits.home.data.local.mapper
+package com.alberto.habits.home.data.mapper
 
 import com.alberto.habits.home.data.extension.toStartOfDateTimestamp
 import com.alberto.habits.home.data.extension.toTimeStamp
 import com.alberto.habits.home.data.extension.toZonedDateTime
 import com.alberto.habits.home.data.local.entity.HabitEntity
-import com.alberto.habits.home.data.local.entity.HabitSyncEntity
 import com.alberto.habits.home.data.remote.dto.HabitDto
 import com.alberto.habits.home.data.remote.dto.HabitResponse
 import com.alberto.habits.home.domain.Habit
@@ -59,6 +58,3 @@ fun Habit.toDto(): HabitResponse {
     return mapOf(id to dto)
 }
 
-fun Habit.toSyncEntity(): HabitSyncEntity {
-    return HabitSyncEntity(id)
-}
